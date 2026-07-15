@@ -180,39 +180,6 @@ router.post("/redefinirSenha", async (req, res) => {
     const baseURL = process.env.BASE_URL || "http://localhost:8080";
     const resetURL = `${baseURL}/redefinir-senha/${token}`;
 
-<<<<<<< HEAD
-    await transporte.sendMail({
-      from: process.env.MAIL_USER,
-      to: emailLimpo,
-      subject: "Redefinir senha WaterFlow",
-      html: `
-      <!DOCTYPE html>
-        <html lang="pt-BR">
-        <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-        <body style="font-family:sans-serif; max-width:520px; margin:0 auto; padding: 0px;">
-          <div style="background: linear-gradient(135deg, #0ea5e9, #0369a1); padding: 32px; text-align: center;">
-            <h1 style="margin: 0; color: #ffffff; font-size: 28px; letter-spacing: 1px;">
-              <img src="cid:LogoWaterFlow" style="width: 125px;"/>
-            </h1>
-          </div>
-          <div style="background:#fff;border:1px solid #e2e8f0; padding:10px; border-radius:0px 0px 8px 8px;">
-            <h2 style="text-align:center; color: #1e3a5f; font-size: 28px; text-transform: uppercase; margin: 0px;">Redefinir Senha</h2>
-            <p style="text-align:center;">Você pediu para redefinir sua senha.</p>
-            <p style="text-align:center;">Clique no link abaixo para continuar:</p>
-            <a style="text-align:center;" href="${resetURL}">${resetURL}</a>
-            <p style="text-align:center;">O link expira em 1 hora.</p>
-          </div>
-        </body>
-        </html>`,
-      attachments: [{
-        filename: "LogoWhiteV1.png",
-        path: "https://waterflow-mocha.vercel.app/assets/Img/LogoWhiteV1.png",
-        cid: "LogoWaterFlow"
-      }]
-    });
-
-    // return res.sendFile(path.join(__dirname, "../public/pages/instrucoesEmail.html"));
-=======
     // Token já salvo — email é disparado num try/catch isolado.
     // Uma falha de SMTP não deve derrubar a rota com 500.
     try {
@@ -250,7 +217,6 @@ router.post("/redefinirSenha", async (req, res) => {
       console.error("Falha ao enviar email de redefinição (token já salvo no banco):", emailError.message);
     }
 
->>>>>>> 06e7f7f223919065f0310042697158e5d084000d
     return res.status(200).json({ success: true, redirect: "/instrucoes_enviadas" })
 
   } catch (error) {
