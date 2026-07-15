@@ -208,7 +208,7 @@ router.post("/redefinirSenha", async (req, res) => {
         </html>`,
       attachments: [{
         filename: "LogoWhiteV1.png",
-        path: "./frontend/public/assets/Img/LogoWhiteV1.png",
+        path: "https://waterflow-mocha.vercel.app/assets/Img/LogoWhiteV1.png",
         cid: "LogoWaterFlow"
       }]
     });
