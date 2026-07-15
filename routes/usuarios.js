@@ -6,6 +6,7 @@ import jwt from "jsonwebtoken";
 import { buscarUsuarioPorEmail } from "../services/userService.js";
 import { buscarFuncionarioPorEmail } from "../services/funcionarioService.js";
 import { enviarComRetry, _LOGO_B64 } from "../services/emailServices.js";
+import nodemailer from "nodemailer"
 
 const router = express.Router();
 
