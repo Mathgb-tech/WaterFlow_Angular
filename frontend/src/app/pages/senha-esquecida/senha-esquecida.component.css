@@ -18,12 +18,15 @@
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px;
+    position: relative;
     grid-area: header;
 }
 
 header > a {
+    position: absolute;
+    left: 20px;
     color: var(--color-bg-primary-blue);
     text-decoration: none;
     font-weight: 500;
