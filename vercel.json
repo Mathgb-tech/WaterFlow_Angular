@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/frontend/browser"
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/server.js" },
+    { "src": "/usuarios/(.*)", "dest": "/server.js" },
+    { "src": "/reporte/(.*)", "dest": "/server.js" },
+    { "src": "/reportes/(.*)", "dest": "/server.js" },
+    { "src": "/meus-reportes/(.*)", "dest": "/server.js" },
+    { "src": "/admin/api/(.*)", "dest": "/server.js" },
+    { "src": "/status/(.*)", "dest": "/server.js" },
+    { "src": "/me", "dest": "/server.js" },
+    
+    { "src": "/logout", "methods": ["POST"], "dest": "/server.js" },
+    { "src": "/login", "methods": ["POST"], "dest": "/server.js" },
+    { "src": "/cadastrar", "methods": ["POST"], "dest": "/server.js" },
+    { "src": "/redefinirSenha", "methods": ["POST"], "dest": "/server.js" },
+    
+    { "handle": "filesystem" },
+    { "src": "/(.*\\.(js|css|svg|png|jpg|jpeg|ico|woff|woff2|ttf|json|geojson))", "dest": "/frontend/$1" },
+    { "src": "/(.*)", "dest": "/frontend/index.html" }
+  ]
+}
