@@ -20,7 +20,7 @@ export const routes: Routes = [
   { path: 'sobre', component: SobreComponent },
   { path: 'senha-esquecida', component: SenhaEsquecidaComponent },
   { path: 'instrucoes-email', component: InstrucoesEmailComponent },
-  { path: 'redefinirSenha/:token', component: RedefinirSenhaComponent },
+  { path: 'redefinir-senha/:token', component: RedefinirSenhaComponent },
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
