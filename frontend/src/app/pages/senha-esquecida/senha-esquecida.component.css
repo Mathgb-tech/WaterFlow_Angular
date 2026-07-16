@@ -1,5 +1,3 @@
-/* Porta exata do public/css/senhaEsquecida.css */
-
 :host {
     display: block;
     height: 100vh;
@@ -7,9 +5,10 @@
 
 .container-senha {
     display: grid;
-    grid-template-areas: 
-    "header"
-    "main";
+    grid-template-areas:
+        "header"
+        "main";
+    grid-template-rows: auto 1fr;
     background: url(/assets/Img/backgroundBlueWaves.svg) center top no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -22,17 +21,22 @@ header {
     padding: 20px;
     position: relative;
     grid-area: header;
+    flex-direction: column;
+    gap: 10px;
 }
 
-header > a {
+header>a {
     position: absolute;
+    top: 20px;
     left: 20px;
     color: var(--color-bg-primary-blue);
     text-decoration: none;
     font-weight: 500;
 }
 
-header > img { width: 100px; }
+header>img {
+    width: 100px;
+}
 
 main {
     display: flex;
@@ -53,7 +57,7 @@ main {
     width: 100%;
 }
 
-.sctForgottenPassword > form {
+.sctForgottenPassword>form {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -61,21 +65,29 @@ main {
     width: 100%;
 }
 
-.sctForgottenPassword > h1 { margin-bottom: 5px; font-size: 2rem; color: var(--color-text-primary-black); }
-.sctForgottenPassword > p { margin-bottom: 30px; color: var(--color-text-secondary-black); }
+.sctForgottenPassword>h1 {
+    margin-bottom: 5px;
+    font-size: 2rem;
+    color: var(--color-text-primary-black);
+}
 
-.sctForgottenPassword > form > input {
+.sctForgottenPassword>p {
+    margin-bottom: 30px;
+    color: var(--color-text-secondary-black);
+}
+
+.sctForgottenPassword>form>input {
     padding: 20px;
     border: 2px solid var(--color-bg-primary-blue);
     border-radius: 6px;
     outline: none;
 }
 
-.sctForgottenPassword > form > input:focus {
+.sctForgottenPassword>form>input:focus {
     box-shadow: 0 0 5px var(--color-bg-secondary-blue);
 }
 
-.sctForgottenPassword > form > button {
+.sctForgottenPassword>form>button {
     width: 100%;
     padding: 20px;
     background-color: var(--color-bg-primary-blue);
@@ -87,16 +99,33 @@ main {
     font-weight: bold;
 }
 
-.sctForgottenPassword > form > button:hover:not(:disabled) { background-color: var(--color-bg-secondary-blue); }
-.sctForgottenPassword > form > button:disabled { opacity: 0.7; cursor: not-allowed; }
+.sctForgottenPassword>form>button:hover:not(:disabled) {
+    background-color: var(--color-bg-secondary-blue);
+}
 
-@media (max-width: 600px){
-    .sctForgottenPassword > h1 {
+.sctForgottenPassword>form>button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+
+    header {
+        gap: 8px;
+    }
+
+    header>a {
+        position: static;
+        text-align: center;
+    }
+
+    .sctForgottenPassword>h1 {
         text-align: center;
         justify-self: center;
         font-size: 1.4rem;
     }
-    .sctForgottenPassword > p {
+
+    .sctForgottenPassword>p {
         text-align: center;
         margin-bottom: 15px;
     }
